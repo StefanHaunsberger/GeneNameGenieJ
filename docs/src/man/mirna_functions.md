@@ -1,2 +1,3 @@
 # miRNA functions in GeneNameGenieJ
 
+Using miRNA name translation functions...
