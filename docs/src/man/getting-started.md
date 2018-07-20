@@ -62,5 +62,8 @@ The GeneNameGenieJ package is available through the Julia package system and can
 Pkg.add("GeneNameGenieJ")
 ```
 
-At this stage we assume, that you have a running GeneNameGenie Neo4j GDB instance,
-have installed the GeneNameGenieJ package and have already executed `using GeneNameGenieJ`.
+```jldoctest genenamegeniej
+using GeneNameGenieJ
+```
+
+At this stage we assume, that you have a running GeneNameGenie Neo4j GDB instance, have installed the GeneNameGenieJ package and have already executed `using GeneNameGenieJ`.
