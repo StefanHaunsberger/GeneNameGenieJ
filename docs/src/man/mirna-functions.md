@@ -1,6 +1,6 @@
 # miRNA functions in GeneNameGenieJ
 
-## Translate input Ids to current version and retrieve metadata
+## Translate any miRNA Id to current version and retrieve metadata
 
 Most cases require retrieval of miRNA names for the current miRBase version. The `convertToCurrentMirbaseVersion` function takes a single or multiple input values and returns the current miRNA name for each input value respectively (where possible). The following example illustrates 
 a simple use case where a single miRNA is converted to the current miRBase version.
@@ -89,31 +89,6 @@ julia> convertMatureMirnasToVersions("hsa-miR-29a", targetVersion = Int[17, 21, 
 
 ## List valid databases and supported parameter values
 
-### `getValidDatabases`: for supported database values
-
-The `getValidDatabases` function returns a list of supported database values. The values contained in the `DatabaseId` column are valid as `targetDb` and `sourceDb` parameter values.
-
-```jldoctest mirna
-julia> getValidDatabases()
-48×2 DataFrames.DataFrame
-│ Row │ DatabaseDisplayName              │ DatabaseId                     │
-├─────┼──────────────────────────────────┼────────────────────────────────┤
-│ 1   │ Ensembl Human Gene               │ ArrayExpress                   │
-│ 2   │ CCDS                             │ CCDS                           │
-│ 3   │ ChEMBL                           │ ChEMBL                         │
-│ 4   │ Clone-based (Ensembl) gene       │ Clone_based_ensembl_gene       │
-│ 5   │ Clone-based (Ensembl) transcript │ Clone_based_ensembl_transcript │
-⋮
-│ 43  │ WikiGene                         │ WikiGene                       │
-│ 44  │ miRBase                          │ miRBase                        │
-│ 45  │ miRBase mature miRNA accession   │ miRBase_mature_accession       │
-│ 46  │ miRBase mature names             │ miRBase_mature_name            │
-│ 47  │ miRBase transcript name          │ miRBase_trans_name             │
-│ 48  │ INSDC protein ID                 │ protein_id                     │
-```
-
-### `getValidMirnaMetadataValues`: List valid miRNA metadata parameter values
-
 The `getValidMirnaMetadataValues` function returns a list of supported miRNA metadata parameter values. Some of the parameters apply only to mature miRNAs whereas others only return values for precursor miRNAs.
 
 ```jldoctest mirna
@@ -135,7 +110,7 @@ julia> getValidMirnaMetadataValues()
 │ 14  │ evidenceType        │
 ```
 
-### `getCurrentMirbaseVersion`: Get information on the latest miRBase release version supported by the package
+Get information on the latest miRBase release version supported by the package
 
 ```jldoctest mirna
 julia> getCurrentMirbaseVersion()

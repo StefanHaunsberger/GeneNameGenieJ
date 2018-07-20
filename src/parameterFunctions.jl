@@ -26,7 +26,7 @@ function getValidAttributes()
 end
 
 """
-   getValidMirnaMetadataValues()
+    getValidMirnaMetadataValues()
    
 Return a `DataFrame` object with a single column, `Parameters`. Values from 
 the `Parameters` column can be used as input parameter `metadata` in the 
@@ -41,7 +41,7 @@ function getValidMirnaMetadataValues()
 end
 
 """
-   getCurrentMirbaseVersion()
+    getCurrentMirbaseVersion()
    
 Return the current miRBase release version information (the highest supported version).
 """
@@ -55,7 +55,7 @@ function getCurrentMirbaseVersion()
 end
 
 """
-   getEnsemblVersion()
+    getEnsemblVersion()
    
 Return the Ensembl DB version of GeneNameGenie.
 """

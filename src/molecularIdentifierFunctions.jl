@@ -1,7 +1,7 @@
 
 """
-getOfficialGeneSymbol(queryId::String; sourceDb::String, chromosomal::Bool=true)
-getOfficialGeneSymbol(queryId::Vector{String}; sourceDb::String, chromosomal::Bool=true)
+    getOfficialGeneSymbol(queryId::String; sourceDb::String, chromosomal::Bool=true)
+    getOfficialGeneSymbol(queryId::Vector{String}; sourceDb::String, chromosomal::Bool=true)
 
 Compute the official gene symbol for a single or multiple `queryId`(s). 
 
@@ -96,8 +96,8 @@ function getOfficialGeneSymbol(
 end
 
 """
-convertFromToExtended(queryId::String; targetDb::Union{String, Vector{String}} attributesUnion{String, Vector{String}}, sourceDb::String, longFormat::Bool, chromosomal::Bool)
-convertFromToExtended(queryId::Vector{String}; targetDb::Union{String, Vector{String}}, attributesUnion{String, Vector{String}}, sourceDb::String, longFormat::Bool, chromosomal::Bool)
+    convertFromToExtended(queryId::String; targetDb::Union{String, Vector{String}} attributesUnion{String, Vector{String}}, sourceDb::String, longFormat::Bool, chromosomal::Bool)
+    convertFromToExtended(queryId::Vector{String}; targetDb::Union{String, Vector{String}}, attributesUnion{String, Vector{String}}, sourceDb::String, longFormat::Bool, chromosomal::Bool)
 
 Retrieve molecular identifier from other databases, `targetDb`, for single or mulitple query IDs, `queryId`,
 and moreover information on Ensembl gene, transcript and peptide IDs, such as ID and genomic loation.
@@ -234,8 +234,8 @@ end
 
 
 """
-convertFromTo(queryId::String; targetDb::Union{String, Vector{String}}, sourceDb::String, longFormat::Bool=true, chromosomal::Bool=true)
-convertFromTo(queryId::Vector{String}; targetDb::Union{String, Vector{String}}, sourceDb::String, longFormat::Bool=true, chromosomal::Bool=true)
+    convertFromTo(queryId::String; targetDb::Union{String, Vector{String}}, sourceDb::String, longFormat::Bool=true, chromosomal::Bool=true)
+    convertFromTo(queryId::Vector{String}; targetDb::Union{String, Vector{String}}, sourceDb::String, longFormat::Bool=true, chromosomal::Bool=true)
 
 Given a single or multiple input IDs, `queryId`, convert to a single or multiple target databases, `targetDb`.
 If `sourceDb` is missing, the database will automatically try to detect the queryId's 

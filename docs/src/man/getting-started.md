@@ -10,6 +10,12 @@ There are two ways GeneNameGenieJ can be used:
 The advantage of having it set up locally is that a 'stable' version of the
 GeneNameGenie GDB can be used which is independent from online version updates.
 
+ The default URL is set to `http://localhost:7474/db/data/`. To use a different URL pass the URL as a string parameter to the GeneNameGenieR object instantiation:
+
+```julia
+julia> setNeo4jConnection(Neo4j.Connection("http://<url>:<port>/db/data"))
+```
+
 ### Setting up a local instance of the GeneNameGenie GDB
 
 #### Part 1: Installing Neo4j community server and initialise GeneNameGenie
@@ -18,14 +24,14 @@ GeneNameGenie GDB can be used which is independent from online version updates.
 Please visit the [Neo4j website](https://neo4j.com/download/) and download the
 latest Neo4j Community version.
 Unpack the archive and place it in a directory of your choice
- 2) Download the GeneNameGenie GDB data from the following link -> [download]()
+ 2) Download the GeneNameGenie GDB data from the following link -> [download](http://www.systemsmedicineireland.ie/)
  3) Extract the archive and place it into the directory `$NEO4J_HOME/data/databases`.
 
 #### Part 2: Java stored procedures and config file
 
  1) Download the Awecome Procedures (apoc) for Neo4j corresponding to the Neo4j version
  [apoc-library](https://github.com/neo4j-contrib/neo4j-apoc-procedures).
- 2) Download the GeneNameGenie JAR file from the GitHub [repository]().
+ 2) Download the GeneNameGenie JAR file from the GitHub [repository](https://github.com/StefanHaunsberger).
  3) Place the `*.jar` files into the `$NEO4J_HOME/plugins` folder.
  4) Open the `$NEO4J_HOME/conf/neoj4.conf` file with your editor of choice and add
  the `apoc.*,rcsi.*` to the `dbms.security.procedures.unrestricted` parameter. If the
@@ -51,8 +57,7 @@ dbms.security.auth_enabled=false
 dbms.allow_upgrade=true
 ```
 
- 6) Start the Neo4j server: Either via calling `sudo $NEO4J_HOME/bin/neo4j start` or 
-      starting the service as described in the Neo4j [documentation]().
+ 6) Start the Neo4j server: Either via calling `sudo $NEO4J_HOME/bin/neo4j start` or starting the service as described in the Neo4j [documentation](https://neo4j.com/docs/developer-manual/current/).
 
 ### GeneNameGenieJ
 
@@ -63,7 +68,7 @@ Pkg.add("GeneNameGenieJ")
 ```
 
 ```jldoctest genenamegeniej
-using GeneNameGenieJ
+julia> using GeneNameGenieJ
 ```
 
 At this stage we assume, that you have a running GeneNameGenie Neo4j GDB instance, have installed the GeneNameGenieJ package and have already executed `using GeneNameGenieJ`.

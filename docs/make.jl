@@ -3,8 +3,9 @@ using Documenter, GeneNameGenieJ
 # makedocs()
 makedocs(
     format = :html,
-    sitename = "GeneNameGenieJ",
-    doctest = true,
+    modules = [GeneNameGenieJ],
+    sitename = "GeneNameGenieJ.jl",
+    doctest = false,
     pages = Any[
       "Introduction" => "index.md",
       "User Guide" => Any[
@@ -12,11 +13,9 @@ makedocs(
           "miRNAs" => "man/mirna-functions.md",
           "Molecular-ID handling" => "man/molecular-id-handling.md",
           "Attributes" => "man/attribute-functions.md"
+      ],
+      "API" => Any[
+          "Functions" => "lib/functions.md"
       ]
-      # ,
-      # "API" => Any[
-      #     "Types" => "lib/types.md",
-      #     "Functions" => "lib/functions.md"
-      # ]
     ]
 )

@@ -15,8 +15,8 @@ METADATA_MAP = Dict{String, String}("confidence" => "value.Conficence AS Confide
                  "evidenceType" => "value.EvidenceType AS EvidenceType");
 
 """
-   convertToCurrentMirbaseVersion(queryId::String; species::String, metadata::Union{String, Vector{String}})
-   convertToCurrentMirbaseVersion(queryId::Vector{String}; species::String, metadata::Union{String, Vector{String}})
+    convertToCurrentMirbaseVersion(queryId::String; species::String, metadata::Union{String, Vector{String}})
+    convertToCurrentMirbaseVersion(queryId::Vector{String}; species::String, metadata::Union{String, Vector{String}})
 
 Translate input IDs to the name in the current miRBase release version.
 
@@ -113,8 +113,8 @@ function convertToCurrentMirbaseVersion(
 end
 
 """
-   convertMatureMirnasToVersions(queryId::String; targetVersion::Union{Union{Float64, Int64}, Union{Vector{Float64}, Vector{Int64}}}, species::String, sequence::Boolean)
-   convertMatureMirnasToVersions(queryId::Vector{String}; targetVersion::Union{Union{Float64, Int64}, Union{Vector{Float64}, Vector{Int64}}}, species::String, sequence::Boolean)
+    convertMatureMirnasToVersions(queryId::String; targetVersion::Union{Union{Float64, Int64}, Union{Vector{Float64}, Vector{Int64}}}, species::String, sequence::Boolean)
+    convertMatureMirnasToVersions(queryId::Vector{String}; targetVersion::Union{Union{Float64, Int64}, Union{Vector{Float64}, Vector{Int64}}}, species::String, sequence::Boolean)
 
 Translate mature miRNA names to different versions
 
