@@ -22,10 +22,10 @@ The _GeneNameGenieJ_ Julia package has been developed to provide functions for m
 
 *Availability:* 
 
-The package can be installed using the following R command from the [devtools](https://github.com/r-lib/devtools) package:
+The package can be installed using the following command:
 
 ```julia
-devtools::install_github("stefanhaunsberger/GeneNameGenieR")
+Pkg.install("GeneNameGenieJ")
 ```
 
 # Introduction
@@ -62,9 +62,9 @@ using GeneNameGenieJ
 
 ## Database information
 
-GeneNameGenieJ depends on a GeneNameGenie Neo4j graph database instance. This can either 
-be locally or online. The default URL is set to `http://localhost:7474/db/data/`. 
-To use a different URL pass the URL as a string parameter to the GeneNameGenieR object 
+GeneNameGenieJ depends on a GeneNameGenie Neo4j graph database instance. This can either
+be locally or online. The default URL is set to `http://localhost:7474/db/data/`.
+To use a different URL pass the URL as a string parameter to the GeneNameGenieR object
 instantiation:
 
 ```julia

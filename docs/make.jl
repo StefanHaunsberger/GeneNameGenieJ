@@ -2,11 +2,12 @@ using Documenter, GeneNameGenieJ
 
 # makedocs()
 makedocs(
-    format = :html,
-    modules = [GeneNameGenieJ],
-    sitename = "GeneNameGenieJ.jl",
-    doctest = false,
-    pages = Any[
+   modules = [GeneNameGenieJ],
+   clean = false,
+   format = :html,
+   sitename = "GeneNameGenieJ.jl",
+   doctest = false,
+   pages = Any[
       "Introduction" => "index.md",
       "User Guide" => Any[
           "Getting Started" => "man/getting-started.md",
@@ -19,3 +20,15 @@ makedocs(
       ]
     ]
 )
+
+# Deploy built documentation from Travis.
+# =======================================
+
+# deploydocs(
+#     # options
+#     repo = "github.com/JuliaData/DataFrames.jl.git",
+#     target = "build",
+#     julia = "0.6",
+#     deps = nothing,
+#     make = nothing,
+# )
