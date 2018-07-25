@@ -3,7 +3,9 @@ module GeneNameGenieJ
 
 using Neo4j, DataFrames, DataFramesMeta, Lazy;
 
-global NEO4J_DEFAULT_HOST_URL = "localhost";
+global const DEFAULT_PORT = 7474;
+global const DEFAULT_PATH = "db/data/";
+global const DEFAULT_HOST = "localhost";
 
 export 
    setNeo4jConnection,
@@ -21,15 +23,15 @@ export
 function establishNeo4jConnection()
    
    # Try and connect to default host
-   con = Neo4j.Connection(NEO4J_DEFAULT_HOST_URL);
+   con = Neo4j.Connection(DEFAULT_HOST);
    global NEO4J_CONNECTION;
    NEO4J_CONNECTION = con;
    try
       graph = getgraph(con);
-      println("Neo4j connection with default URL $NEO4J_DEFAULT_HOST_URL successfully established.");
+      println("Neo4j connection with default URL $DEFAULT_HOST successfully established.");
       true;
    catch
-      warn("Was not able to connect to Neo4j database on default host $NEO4J_DEFAULT_HOST_URL");
+      warn("Was not able to connect to Neo4j database on default host $DEFAULT_HOST");
       false;
    end
 
@@ -39,22 +41,32 @@ end
 global NEO4J_CONNECTION = establishNeo4jConnection();
 
 """
-    setNeo4jConnection(con::Neo4j.Connection)
+    setNeo4jConnection(;host::String = DEFAULT_HOST, port::Integer = DEFAULT_PORT, path::String = DEFAULT_PATH)
 
-Set desired global Neo4j connection. Default is `localhost`.
+Set desired global Neo4j connection. Default is `localhost:7474/db/data/`.
 
 """
-function setNeo4jConnection(con::C) where {C<:Neo4j.Connection}
-   
-   conUrl = con.host * ":" * string(con.port);
+function setNeo4jConnection(;host::T = DEFAULT_HOST, port::I = DEFAULT_PORT, path::T = DEFAULT_PATH) where 
+   {T<:String, I<:Integer}
+
+   # Add leading and trailing slash if missing
+   if !startswith(path, "/")
+      path = "/" * path;
+   end
+   if !endswith(path, "/")
+      path = path * "/";
+   end
+
+   con = Neo4j.Connection(host, port = port, path = path);
+   # conUrl = con.host * ":" * string(con.port);
    try
-      print("test connection for $conUrl");
+      print("test connection for $(con.url)");
       graph = getgraph(con);
       println("Neo4j connection successfully established and set.");
       global NEO4J_CONNECTION;
       NEO4J_CONNECTION = con;
    catch
-      warn("Was not able to connect to Neo4j database $conUrl");
+      warn("Was not able to connect to Neo4j database $(con.url)");
    end
    
 end
