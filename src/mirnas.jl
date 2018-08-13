@@ -194,8 +194,6 @@ function convertMatureMirnasToVersions(
          "species" => species,
          "sequence" => sequence);
 
-   println("past query")
-   println(x);
    # Check for multi matches and not found input Ids
    if DataFrames.nrow(x) > 0
       multiMatches = @> begin
@@ -207,7 +205,6 @@ function convertMatureMirnasToVersions(
    else
       return x;
    end
-   println("past multiMatches");
 
    if (DataFrames.nrow(multiMatches) != 0)
       warn("Some input identifiers match to more than one MIMAT accession!");
